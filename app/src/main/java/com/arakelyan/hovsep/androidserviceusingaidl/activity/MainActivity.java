@@ -1,4 +1,4 @@
-package com.arakelyan.hovsep.androidserviceusingaidl;
+package com.arakelyan.hovsep.androidserviceusingaidl.activity;
 
 import android.content.ComponentName;
 import android.content.Intent;
@@ -9,9 +9,11 @@ import android.os.RemoteException;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import com.arakelyan.hovsep.androidserviceusingaidl.FileInfo;
+import com.arakelyan.hovsep.androidserviceusingaidl.IMainService;
+import com.arakelyan.hovsep.androidserviceusingaidl.R;
 import com.arakelyan.hovsep.androidserviceusingaidl.adapter.InfoAdapter;
 
 import java.util.Arrays;
@@ -27,7 +29,10 @@ public class MainActivity extends AppCompatActivity implements InfoAdapter.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Intent serviceIntent = new Intent("com.arakelyan.hovsep.androidserviceusingaidl.service.MainService");
+        Intent serviceIntent = new Intent()
+                .setComponent(new ComponentName(
+                        "com.arakelyan.hovsep.myscanner",
+                        "com.arakelyan.hovsep.androidserviceusingaidl.service.MainService"));
         Toast.makeText(this, "Starting service…", Toast.LENGTH_SHORT).show();
         startService(serviceIntent);
         Toast.makeText(this, "Binding service…", Toast.LENGTH_SHORT).show();
