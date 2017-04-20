@@ -101,6 +101,7 @@ public class DBHelper extends SQLiteOpenHelper {
         // Select All Query
         String selectQuery = "SELECT  * FROM " + TABLE_FILE_INFO;
         SQLiteDatabase db = this.getWritableDatabase();
+        db.beginTransaction();
         Cursor cursor = db.rawQuery(selectQuery, null);
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
@@ -115,6 +116,8 @@ public class DBHelper extends SQLiteOpenHelper {
                 newsFeeds.add(info);
             } while (cursor.moveToNext());
         }
+        db.setTransactionSuccessful();
+        db.endTransaction();
         db.close();
         return newsFeeds;
     }
