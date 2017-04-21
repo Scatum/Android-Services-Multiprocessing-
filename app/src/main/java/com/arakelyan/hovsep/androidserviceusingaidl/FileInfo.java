@@ -3,9 +3,6 @@ package com.arakelyan.hovsep.androidserviceusingaidl;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-/**
- * @author Aidan Follestad (afollestad)
- */
 public class FileInfo implements Parcelable {
 
     private int id;

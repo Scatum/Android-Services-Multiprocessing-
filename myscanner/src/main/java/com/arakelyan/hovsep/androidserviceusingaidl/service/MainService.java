@@ -22,9 +22,6 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-/**
- * @author Hovsep
- */
 public class MainService extends Service {
 
     private void log(String message) {
@@ -33,7 +30,6 @@ public class MainService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.e("********", "Received start command.");
         callAsynchronousTask();
         startForeground(startId, new Notification());
         return START_STICKY;
@@ -78,7 +74,6 @@ public class MainService extends Service {
                             File[] files = directory.listFiles();
                             List<FileInfo> fileInfos = new ArrayList<>();
                             for (int i = 0; i < files.length; i++) {
-                                Log.e("RRRR", "RRRRR" + files[i].getName());
                                 FileInfo fileInfo = new FileInfo(files[i].getName(), files[i].getPath(), "0", new Date().toString());
                                 fileInfos.add(fileInfo);
                             }

@@ -1,5 +1,3 @@
-
-
 package com.arakelyan.hovsep.androidserviceusingaidl.db;
 
 import android.content.ContentValues;
@@ -8,16 +6,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
-
-
 import com.arakelyan.hovsep.androidserviceusingaidl.FileInfo;
-
 import java.util.ArrayList;
 import java.util.List;
-
-/**
- * Created by jrara_000 on 17.04.2017.
- */
 
 public class DBHelper extends SQLiteOpenHelper {
 
