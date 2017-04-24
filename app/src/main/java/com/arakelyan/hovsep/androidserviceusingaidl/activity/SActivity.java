@@ -30,17 +30,14 @@ public class SActivity extends AppCompatActivity implements View.OnClickListener
                     == PackageManager.PERMISSION_GRANTED) {
                 // Permission already granted
                 startListActivity();
-                //  startMainService();
-
             } else {
-                //Request Location Permission
-                checkLocationPermission();
+                //Request  Permission
+                checkPermission();
             }
         } else {
             startListActivity();
-            // startMainService();
         }
-        checkLocationPermission();
+        checkPermission();
     }
 
     @Override
@@ -54,7 +51,7 @@ public class SActivity extends AppCompatActivity implements View.OnClickListener
     }
 
 
-    private void checkLocationPermission() {
+    private void checkPermission() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
                 != PackageManager.PERMISSION_GRANTED) {
 
@@ -100,7 +97,6 @@ public class SActivity extends AppCompatActivity implements View.OnClickListener
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
                     // permission was granted, yay! Do the
-                    // location-related task you need to do.
                     if (ContextCompat.checkSelfPermission(this,
                             Manifest.permission.READ_EXTERNAL_STORAGE)
                             == PackageManager.PERMISSION_GRANTED) {
